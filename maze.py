@@ -70,12 +70,12 @@ class Maze():
         # If the distance is less than the desired eu_dist then try again! The goal of this
         # is to make the solution at least mildly interesting.
         eu = euclidean(self.g_pos, self.s_pos)
-        print "Finding decent Euclidean Distance that is larger than: {:.4f}".format(self.eu_dist)
+        print("Finding decent Euclidean Distance that is larger than: {:.4f}".format(self.eu_dist))
         while eu < self.eu_dist:
             self.s_pos = (random.randint(1, self.height), random.randint(1, self.width))
             self.g_pos = (random.randint(1, self.height), random.randint(1, self.width))
             eu = euclidean(self.g_pos, self.s_pos)
-        print "Distance found:", eu
+        print("Distance found:", eu)
 
         self.maze[self.s_pos[0]][self.s_pos[1]] = BOT_TOKEN
         self.maze[self.g_pos[0]][self.g_pos[1]] = GOAL_TOKEN
@@ -90,13 +90,13 @@ class Maze():
             for y in range(self.width+2):
                 m += self.maze[x][y]
             m += "\n" 
-        print m
+        print(m)
 
 def validate_maze(maze, verbose, diag):
 
     # Finds the minimizing element of a list
     def argmin(ls):
-        return min(ls.iteritems(), key=lambda x: x[1])
+        return min(ls.items(), key=lambda x: x[1])
 
     def reconstruct_path(cameFrom, current):
         total_path = []

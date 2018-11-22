@@ -13,14 +13,14 @@ def main():
     if b[1] == False:
         if verbose:
             m.print_maze()
-        print "After {} iterations there was no path to G".format(b[0])
+        print("After {} iterations there was no path to G".format(b[0]))
     else:
         for p in b[1]:
             if p in [m.s_pos, m.g_pos]:
                 continue
             m.maze[p[0]][p[1]] = maze.TRAVEL_TOKEN
         m.print_maze()
-        print "After {} iterations a path to G was found".format(b[0])
+        print("After {} iterations a path to G was found".format(b[0]))
 
 
 if __name__ == '__main__':
